@@ -1,0 +1,38 @@
+{
+  "name": "@domtify/auto-import-transformer",
+  "version": "0.0.0",
+  "description": "Auto-import tool for the domtify library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domtify/auto-import-transformer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/domtify/auto-import-transformer/issues"
+  },
+  "author": "ajiho",
+  "funding": "https://www.lujiahao.com/sponsor",
+  "license": "MIT",
+  "scripts": {
+    "style": "prettier --config configs/prettier.config.mjs . --check --cache --cache-location node_modules/.cache/.prettiercache",
+    "style:fix": "prettier --config configs/prettier.config.mjs . --write"
+  },
+  "main": "index.js",
+  "module": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "dom",
+    "domtify",
+    "esbuild",
+    "jquery",
+    "rollup",
+    "unplugin",
+    "vite",
+    "webpack"
+  ],
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "prettier-plugin-sort-pkgjson": "^1.0.0"
+  }
+}

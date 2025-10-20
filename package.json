@@ -1,6 +1,6 @@
 {
   "name": "@domtify/auto-import-transformer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Auto-import tool for the domtify library",
   "repository": {
     "type": "git",

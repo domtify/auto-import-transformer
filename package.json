@@ -14,14 +14,29 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "style": "prettier --config configs/prettier.config.mjs . --check --cache --cache-location node_modules/.cache/.prettiercache",
-    "style:fix": "prettier --config configs/prettier.config.mjs . --write",
-    "release": "node scripts/release.mjs"
+    "prettier": "prettier --config configs/prettier.config.mjs . --check --cache --cache-location node_modules/.cache/.prettiercache",
+    "prettier:fix": "prettier --config configs/prettier.config.mjs . --write",
+    "release": "node scripts/release.mjs",
+    "build": "tsdown --config configs/tsdown.config.mjs",
+    "test": "vitest --config configs/vitest.config.mjs run"
   },
-  "main": "index.js",
-  "module": "index.js",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
   "files": [
-    "index.js"
+    "dist"
   ],
   "keywords": [
     "dom",
@@ -33,13 +48,39 @@
     "vite",
     "webpack"
   ],
-  "devDependencies": {
-    "execa": "^9.6.0",
+  "dependencies": {
+    "consola": "^3.4.2",
     "picocolors": "^1.1.1",
+    "resolve-package-path": "^4.0.3"
+  },
+  "peerDependencies": {
+    "domtify": "^1.0.0",
+    "unplugin-ast": "^0.15.4"
+  },
+  "peerDependenciesMeta": {
+    "domtify": {
+      "optional": false
+    },
+    "unplugin-ast": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@babel/generator": "^7.28.5",
+    "@babel/types": "^7.28.5",
+    "@types/babel__generator": "^7.27.0",
+    "@types/node": "^24.10.0",
+    "@vitest/ui": "^4.0.7",
+    "escape-string-regexp": "^5.0.0",
+    "execa": "^9.6.0",
     "prettier": "^3.6.2",
     "prettier-plugin-sort-pkgjson": "^1.0.0",
     "prompts": "^2.4.2",
-    "semver": "^7.7.2"
+    "semver": "^7.7.2",
+    "tsdown": "^0.16.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.7"
   },
   "publishConfig": {
     "access": "public"
